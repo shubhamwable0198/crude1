@@ -4,6 +4,15 @@ from . models import Employee
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+def addview(request):
+    form = EmployeeForm()
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("show")
+
+    return render(request, "app1/add.html", {"form": form})
 
 def showview(request):
     obj = Employee.objects.all()
