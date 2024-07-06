@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+    {% block title %}
+    <title>Add</title>
+    {% endblock %}
+
+
+{% block data %}
+<div class="container">
+<h1>Add Data</h1>
+<form method="post" class="w-50 mx-auto">
+    {% csrf_token %}
+    {{form|crispy}}
+
+    <input type="submit" class="btn btn-success col-4">
+
+    <input type="reset" class="btn btn-warning col-4">
+
+</form>
+   </div>
+
+
+
+{% endblock %}
